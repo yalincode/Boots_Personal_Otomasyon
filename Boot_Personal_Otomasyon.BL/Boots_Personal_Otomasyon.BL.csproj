@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Boots_Personal_Otomasyon.Core\Boots_Personal_Otomasyon.Core.csproj" />
+    <ProjectReference Include="..\Boot_Personal_Otomasyon.DAL\Boots_Personal_Otomasyon.DAL.csproj" />
+    <ProjectReference Include="..\Boot_Personal_Otomasyon.DTO\Boots_Personal_Otomasyon.DTO.csproj" />
+    <ProjectReference Include="..\Boot_Personal_Otomasyon.Entities\Boots_Personal_Otomasyon.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
