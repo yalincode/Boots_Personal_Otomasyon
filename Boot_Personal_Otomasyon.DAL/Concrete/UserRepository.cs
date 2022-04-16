@@ -20,7 +20,7 @@ namespace Boots_Personal_Otomasyon.DAL.Concrete
         public UserDTO GetUser(string username, string password)
         {
             return _context.UserAccount.Where(t=>t.UserName == username && t.Password == password)
-                .Select(t1=>new UserDTO{ FullName=t1.FullName,UserAccountId=t1.UserAccountId,UserName=t1.UserName})
+                .Select(t1=>new UserDTO{ FullName=t1.FullName,UserAccountId=t1.Id,UserName=t1.UserName})
                 .FirstOrDefault();
 
             //return (from t in _context.UserAccount

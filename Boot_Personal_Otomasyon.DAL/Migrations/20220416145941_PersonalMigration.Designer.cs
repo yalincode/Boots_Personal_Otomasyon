@@ -4,14 +4,16 @@ using Boots_Personal_Otomasyon.DAL.Context.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Boots_Personal_Otomasyon.DAL.Migrations
 {
     [DbContext(typeof(PersonalContext))]
-    partial class PersonalContextModelSnapshot : ModelSnapshot
+    [Migration("20220416145941_PersonalMigration")]
+    partial class PersonalMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

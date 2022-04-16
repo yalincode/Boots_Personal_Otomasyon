@@ -1,0 +1,140 @@
+﻿@using Boots_Personal_Otomasyon.WEBUI.Models
+@model PersonalVM
+
+
+@section Head{
+<link href="~/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+<link href="~/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+<!-- Switchery -->
+<link href="~/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+<!-- starrr -->
+<link href="~/vendors/starrr/dist/starrr.css" rel="stylesheet">
+}
+<div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Personel İşlemleri</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form id="personalForm" asp-controller="PersonalController1" asp-action="PersonalDetail" method="post" data-parsley-validate="" class="form-horizontal form-label-left">
+                    <input asp-for="Id" type="hidden" />
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="NameAndSurname">
+                            Ad Soyad <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input asp-for="NameAndSurname" type="text" required="required" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="IdentifierNumber">
+                            TC <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input asp-for="IdentifierNumber" type="text" required="required" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="Email">
+                            E-mail <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input asp-for="Email" type="text" required="required" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="Phone">
+                            Telefon <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input asp-for="Phone" type="text" required="required" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">
+                            Doğum Tarihi <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input asp-for="BirthDate" id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                            <script>
+                                function timeFunctionLong(input) {
+                                    setTimeout(function() {
+                                        input.type = 'text';
+                                    }, 60000);
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Departman<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <select class="form-control">
+                                <option>Choose option</option>
+                                <option>Option one</option>
+                                <option>Option two</option>
+                                <option>Option three</option>
+                                <option>Option four</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="Twitter">
+                            Twitter <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input asp-for="Twitter" type="text" required="required" class="form-control has-feedback-left ">
+                            <span class="fa-brands fa-twitter form-control-feedback left" aria-hidden="true"></span>
+                            
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align has" for="Facebook">
+                            Facebook <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input asp-for="Facebook" type="text" required="required" class="form-control has-feedback-left ">
+                            <span class="fa-brands fa-facebook form-control-feedback left" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="Linkedln">
+                            Linkedln <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input asp-for="Linkedln" type="text" required="required" class="form-control has-feedback-left ">
+                            <span class="fa-brands fa-linkedin form-control-feedback left" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="Address">
+                            Adres <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <textarea asp-for="Address" row="5" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button type="submit" class="btn btn-info">
+                                <i class="fa-solid fa-plus"></i>
+                                 Yeni</button>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                 Kaydet</button>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fa-solid fa-trash-can"></i>
+                                 Sil</button>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fa-solid fa-list"></i>
+                                 Listele</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

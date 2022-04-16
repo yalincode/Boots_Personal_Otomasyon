@@ -17,6 +17,8 @@ namespace Boots_Personal_Otomasyon.DAL.Context.EF
         }
        
         public DbSet<UserAccount> UserAccount{ get; set; }
+        public DbSet<Personal> Personal { get; set; }
+        public DbSet<Department> Department { get; set; }
 
         private bool IsMigration = true;
 
@@ -32,6 +34,9 @@ namespace Boots_Personal_Otomasyon.DAL.Context.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserAccountConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonalConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartmantConfiguration());
+
 
             base.OnModelCreating(modelBuilder);
         }

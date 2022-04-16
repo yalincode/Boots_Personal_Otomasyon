@@ -16,7 +16,7 @@ namespace Boots_Personal_Otomasyon.DAL.Context.EF.Configuration
        
         public void Configure(EntityTypeBuilder<UserAccount> builder)
         {
-            builder.HasKey(t=>t.UserAccountId);
+            builder.HasKey(t=>t.Id);
             builder.Property(t=>t.UserName).HasMaxLength(255).IsRequired();
             builder.Property(t=>t.Password).HasMaxLength(100).IsRequired();
             builder.Property(t=>t.FullName).HasMaxLength(255);
