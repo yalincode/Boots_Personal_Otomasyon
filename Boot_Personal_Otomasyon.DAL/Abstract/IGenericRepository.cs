@@ -13,7 +13,7 @@ namespace Boots_Personal_Otomasyon.DAL.Abstract
         //{
         //    return false;
         //} ====================================> Bu Func<T,bool> predicate => Aynı şeydir
-        IQueryable<T> GetAll(Func<T,bool> predicate);
+        IQueryable<T> GetAll(Func<T,bool> predicate=null);
 
         //GERİ DÖNÜŞ TİPİ T OLMUŞ OLUR
         Task<T> GetById(int id);

@@ -29,9 +29,14 @@ namespace Boots_Personal_Otomasyon.DAL.Concrete
             await _Db.SaveChangesAsync();
         }
 
-        public virtual IQueryable<T> GetAll(Func<T, bool> predicate)
+        public virtual IQueryable<T> GetAll(Func<T, bool> predicate=null)
         {
-            return _Db.Set<T>().Where(predicate).AsQueryable();
+            var DbSet = _Db.Set<T>().AsQueryable();
+            if (predicate!=null)
+            {
+                DbSet = DbSet.Where(predicate).AsQueryable();
+            }
+            return DbSet;
         }
 
         public virtual async Task<T> GetById(int id)

@@ -17,6 +17,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using MVCGrid;
+using MVCGrid.NetCore;
 
 namespace Boot_Personal_Otomasyon.WEBUI
 {
@@ -52,10 +54,12 @@ namespace Boot_Personal_Otomasyon.WEBUI
             //Personal iþlemleri
             services.AddScoped<IPersonalBusiness, PersonalBusiness>();
             services.AddScoped<IPersonalRepository,PersonalRepository>();
+
+            services.AddMvcGrid();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,IPersonalBusiness personalBusiness,IMapper mapper)
         {
             if (env.IsDevelopment())
             {
@@ -69,10 +73,13 @@ namespace Boot_Personal_Otomasyon.WEBUI
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
+
+            app.RegisterMVCGrid("PersonalListGrid", Boots_Personal_Otomasyon.WEBUI.Grid.PersonalListGrid.PersonalListGridCustumize(app));
+            //Grid içerisine database entegre þekilde çalýþmasý için yapýldý.
+            //Ekrana buradan basýlacak.
+            app.UseMvcGrid();
 
             app.UseEndpoints(endpoints =>
             {

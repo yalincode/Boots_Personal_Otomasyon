@@ -27,7 +27,7 @@ namespace Boots_Personal_Otomasyon.BL.Concrete
             await _personalRepo.DeleteById(id);
         }
 
-        public IQueryable<Personal> GetAll(Func<Personal, bool> predicate)
+        public IQueryable<Personal> GetAll(Func<Personal, bool> predicate=null)
         {
             return _personalRepo.GetAll(predicate);
         }

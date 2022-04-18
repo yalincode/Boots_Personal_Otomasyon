@@ -10,7 +10,7 @@ namespace Boots_Personal_Otomasyon.BL.Abstract
 {
     public interface IPersonalBusiness
     {
-        IQueryable<Personal> GetAll(Func<Personal, bool> predicate);
+        IQueryable<Personal> GetAll(Func<Personal, bool> predicate=null);
 
         //GERİ DÖNÜŞ TİPİ T OLMUŞ OLUR
         Task<Personal> GetById(int id);
