@@ -42,23 +42,41 @@ namespace Boots_Personal_Otomasyon.WEBUI.Controllers
         [HttpPost("personal/{id?}")]
         public async Task<IActionResult> PersonalDetail(int? id,PersonalVM item)
         {
-            var personal=_mapper.Map<Personal>(item);
-
-            if (personal.Id>0)
+            if (Request.Form["btnNew"].Count>0)
             {
-                //update
-                //_personalBusiness.Update(personal);
-                await _personalBusiness.Update(personal);//await demezsek kod beklemeden devam eder
-
+                return Redirect("/personal/");
             }
-            else
+            else if (Request.Form["btnSave"].Count > 0)
             {
-                //ınsert
-                //_personalBusiness.Add(personal);
-                await _personalBusiness.Add(personal);
-                return Redirect("personal/" + personal.Id.ToString());
-                //Yeniden url atıldığı için. Request yönlendiriliyor.
+                var personal = _mapper.Map<Personal>(item);
+
+                if (personal.Id > 0)
+                {
+                    //update
+                    //_personalBusiness.Update(personal);
+                    await _personalBusiness.Update(personal);//await demezsek kod beklemeden devam eder
+
+                }
+                else
+                {
+                    //ınsert
+                    //_personalBusiness.Add(personal);
+                    await _personalBusiness.Add(personal);
+                    return Redirect("/personal/" + personal.Id.ToString());
+                    //Yeniden url atıldığı için. Request yönlendiriliyor.
+                }
             }
+            else if (Request.Form["btnDelete"].Count > 0)
+            {
+                if(id!=null && id>0)
+                await _personalBusiness.DeleteById(Convert.ToInt32(id));
+                return Redirect("/personal-list");
+            }
+            else if (Request.Form["btnList"].Count > 0)
+            {
+                return Redirect("/personal-list");
+            }
+            
             return View();
         }
 

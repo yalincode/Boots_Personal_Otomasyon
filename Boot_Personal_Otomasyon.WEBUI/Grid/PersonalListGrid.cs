@@ -7,6 +7,7 @@ using MVCGrid.Models;
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace Boots_Personal_Otomasyon.WEBUI.Grid
 {
     public static class PersonalListGrid
@@ -31,6 +32,9 @@ namespace Boots_Personal_Otomasyon.WEBUI.Grid
                     cols.Add("Phone").WithHeaderText("Telefon").WithVisibility(true,true).WithValueExpression(t=>t.Phone);
                     cols.Add("BirthDate").WithHeaderText("Doğum Tarihi").WithVisibility(true,true).WithValueExpression(t=>t.BirthDate.ToString());
                     cols.Add("IdentifierNumber").WithHeaderText("TC").WithVisibility(true,true).WithValueExpression(t=>t.IdentifierNumber);
+                    //Edit yapılan alan
+                    cols.Add("Edit").WithValueExpression((i, c) => $"<a href='/personal/{i.Id.ToString()}'>Edit</a>").WithHtmlEncoding(false);
+                    
                 }).WithRetrieveDataMethod((context) =>
                 {
                     QueryOptions options = context.QueryOptions;//context grid bilgilerini verir.

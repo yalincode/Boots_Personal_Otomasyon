@@ -27,7 +27,7 @@
                             Ad Soyad <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input asp-for="NameAndSurname" type="text" required="required" class="form-control ">
+                            <input asp-for="NameAndSurname" type="text" class="form-control ">
                         </div>
                     </div>
                     <div class="item form-group">
@@ -59,7 +59,7 @@
                             Doğum Tarihi <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input asp-for="BirthDate" id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                            <input asp-for="BirthDate" id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                             <script>
                                 function timeFunctionLong(input) {
                                     setTimeout(function() {
@@ -86,7 +86,7 @@
                             Twitter <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input asp-for="Twitter" type="text" required="required" class="form-control has-feedback-left ">
+                            <input asp-for="Twitter" type="text" class="form-control has-feedback-left ">
                             <span class="fa-brands fa-twitter form-control-feedback left" aria-hidden="true"></span>
                             
                         </div>
@@ -96,7 +96,7 @@
                             Facebook <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input asp-for="Facebook" type="text" required="required" class="form-control has-feedback-left ">
+                            <input asp-for="Facebook" type="text" class="form-control has-feedback-left ">
                             <span class="fa-brands fa-facebook form-control-feedback left" aria-hidden="true"></span>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                             Linkedln <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input asp-for="Linkedln" type="text" required="required" class="form-control has-feedback-left ">
+                            <input asp-for="Linkedln" type="text" class="form-control has-feedback-left ">
                             <span class="fa-brands fa-linkedin form-control-feedback left" aria-hidden="true"></span>
                         </div>
                     </div>
@@ -119,16 +119,16 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-9 col-sm-9  offset-md-3">
-                            <button type="submit" class="btn btn-info">
+                            <button id="btnNew" name="btnNew" type="submit" class="btn btn-info">
                                 <i class="fa-solid fa-plus"></i>
                                  Yeni</button>
-                            <button class="btn btn-primary" type="submit">
+                            <button id="btnSave" name="btnSave" class="btn btn-primary" type="submit">
                                 <i class="fa-solid fa-floppy-disk"></i>
                                  Kaydet</button>
-                            <button type="submit" class="btn btn-danger">
+                            <button id="btnDelete" onclick="return IsDelete()" name="btnDelete" type="submit" class="btn btn-danger">
                                 <i class="fa-solid fa-trash-can"></i>
                                  Sil</button>
-                            <button type="submit" class="btn btn-warning">
+                            <button id="btnList" name="btnList" type="submit" class="btn btn-warning">
                                 <i class="fa-solid fa-list"></i>
                                  Listele</button>
                         </div>
@@ -138,3 +138,17 @@
         </div>
     </div>
 </div>
+
+@section js{
+    <script>
+    function IsDelete(){
+       if( confirm('Kaydı silmek istiyor musunuz?')){
+           return true;
+
+       }
+       else{
+           return false;
+       }
+    }
+    </script>
+}
