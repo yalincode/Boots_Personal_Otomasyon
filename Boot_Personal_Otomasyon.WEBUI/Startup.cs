@@ -36,9 +36,10 @@ namespace Boot_Personal_Otomasyon.WEBUI
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddAutoMapper(cfg=>cfg.AddProfile<GeneralProfile>(),typeof(Startup));
-            var mapperConfig = new MapperConfiguration(mc => mc.AddProfile<GeneralProfile>());
-            IMapper mapper=mapperConfig.CreateMapper();
-            services.AddSingleton(mapper);
+            //var mapperConfig = new MapperConfiguration(mc => mc.AddProfile<GeneralProfile>());
+            //IMapper mapper=mapperConfig.CreateMapper();
+            //services.AddSingleton(mapper);
+            services.AddAutoMapper(typeof(GeneralProfile));
 
 
             services.AddControllersWithViews();

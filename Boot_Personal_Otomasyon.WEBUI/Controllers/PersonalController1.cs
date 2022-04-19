@@ -34,6 +34,7 @@ namespace Boots_Personal_Otomasyon.WEBUI.Controllers
                 if (personal!=null)
                 {
                     personalVM = _mapper.Map<PersonalVM>(personal);
+                    
                 }
             }
             return View(personalVM);
